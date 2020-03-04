@@ -1,0 +1,22 @@
+{
+  "CoordinatesPicker": {
+    "name": "坐标获取",
+    "type": "CoordinatesPicker",
+    "defaultProps": {
+      "mode": "mousemove",
+      "fontSize": 14
+    },
+    "uri": "coordinates-picker/Component",
+    "settingUri": "coordinates-picker/Setting"
+  },
+  "CoordinatesPosition": {
+    "name": "坐标定位",
+    "type": "CoordinatesPosition",
+    "uri": "coordinates-position/Component"
+  },
+  "MarkersInteraction": {
+    "name": "标记交互",
+    "type": "MarkersInteraction",
+    "uri": "markers-interaction/Component"
+  }
+}
