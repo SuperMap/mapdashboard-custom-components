@@ -12,9 +12,9 @@
     </div>
     <div class="sm-setting-panel">
       <div class="sm-setting-panel__header">字体大小：</div>
-      <div class="sm-setting-panel__content has-unit">
+      <div class="sm-setting-panel__content">
         <a-input :value="fontSize" @change="e => handleChange({ fontSize: e.target.value })" />
-        <span class="sm-text-setting__input-unit">像素</span>
+        <span class="sm-setting-unit">像素</span>
       </div>
     </div>
   </div>
