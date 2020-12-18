@@ -1,7 +1,7 @@
 <template>
   <div class="custom-text-setting">
     <div class="sm-setting-panel">
-      <div class="sm-setting-panel__header">触发模式：</div>
+      <div class="sm-setting-panel__header">{{ $t('CoordinatesPicker.modeLabel') }}</div>
       <a-select
         class="sm-setting-panel__content"
         :value="mode"
@@ -11,10 +11,10 @@
       />
     </div>
     <div class="sm-setting-panel">
-      <div class="sm-setting-panel__header">字体大小：</div>
+      <div class="sm-setting-panel__header">{{ $t('CoordinatesPicker.fontSize') }}</div>
       <div class="sm-setting-panel__content">
-        <a-input :value="fontSize" @change="e => handleChange({ fontSize: e.target.value })" />
-        <span class="sm-setting-unit">像素</span>
+        <a-input-number :value="fontSize" @change="value => handleChange({ fontSize: value })" />
+        <span class="sm-setting-unit">px</span>
       </div>
     </div>
   </div>
@@ -32,11 +32,11 @@ export default {
     return {
       optionsList: [
         {
-          label: '点击',
+          label: this.$t('CoordinatesPicker.click'),
           value: 'click'
         },
         {
-          label: '鼠标移动',
+          label: this.$t('CoordinatesPicker.mousemove'),
           value: 'mousemove'
         }
       ]

@@ -1,9 +1,9 @@
 <template>
   <div :style="fontStyle" class="custom-component-container">
-    <h3 :style="{ color: textColor }">标记交互demo:</h3>
+    <h3 :style="{ color: textColor }">{{$t('MarkersInteraction.title')}}</h3>
     <div class="btn-opers">
-      <a-button type="primary" :style="{ fontSize }" @click="addMarkers">添加标记</a-button>
-      <img v-if="showImage" :src="imgUrl" alt="点击标记显示图片" />
+      <a-button type="primary" :style="{ fontSize }" @click="addMarkers">{{ $t('MarkersInteraction.addMarker') }}</a-button>
+      <img v-if="showImage" :src="imgUrl" :alt="$t('MarkersInteraction.imgAlt')" />
     </div>
   </div>
 </template>
@@ -155,7 +155,7 @@ export default {
       return +(start + differ * random).toFixed(fixed);
     },
     noneMapTip() {
-      alert('未关联地图！');
+      alert(this.$t('MarkersInteraction.unassociatedMap'));
     }
   },
   loaded(map) {

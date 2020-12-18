@@ -1,6 +1,6 @@
 {
   "CoordinatesPicker": {
-    "name": "坐标获取",
+    "name": "CoordinatesPicker",
     "type": "CoordinatesPicker",
     "defaultProps": {
       "mode": "mousemove",
@@ -10,12 +10,12 @@
     "settingUri": "coordinates-picker/Setting"
   },
   "CoordinatesPosition": {
-    "name": "坐标定位",
+    "name": "CoordinatesPosition",
     "type": "CoordinatesPosition",
     "uri": "coordinates-position/Component"
   },
   "MarkersInteraction": {
-    "name": "标记交互",
+    "name": "MarkersInteraction",
     "type": "MarkersInteraction",
     "uri": "markers-interaction/Component"
   }

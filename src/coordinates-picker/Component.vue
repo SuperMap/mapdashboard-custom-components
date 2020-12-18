@@ -1,17 +1,17 @@
 <template>
   <div :style="fontStyle" class="custom-component-container">
-    <h3 :style="{ color: textColor }">经纬度信息demo:</h3>
+    <h3 :style="{ color: textColor }">{{ $t('CoordinatesPicker.title') }}</h3>
     <div v-if="lngLat" class="coordinate-holder">
       <div class="coordinate-item">
-        <label> 触发模式：</label>
+        <label>{{ $t('CoordinatesPicker.modeLabel') }}</label>
         <span>{{ optionsList[mode] }}</span>
       </div>
       <div class="coordinate-item">
-        <label> 经度：</label>
+        <label>{{ $t('CoordinatesPicker.longitude') }}</label>
         <span>{{ lngLat.lng }}</span>
       </div>
       <div class="coordinate-item">
-        <label> 纬度：</label>
+        <label>{{ $t('CoordinatesPicker.latitude') }}</label>
         <span>{{ lngLat.lat }}</span>
       </div>
     </div>
@@ -43,8 +43,8 @@ export default {
     return {
       lngLat: null,
       optionsList: {
-        click: '点击',
-        mousemove: '鼠标移动'
+        click: this.$t('CoordinatesPicker.click'),
+        mousemove: this.$t('CoordinatesPicker.mousemove')
       },
       pointsLen: 5
     };
@@ -102,7 +102,7 @@ export default {
   padding: 8px;
 }
 h3 {
-  border-bottom: 2px solid #1890ff;
+  border-bottom: 2px solid #3499e5;
   display: inline-block;
   padding-bottom: 6px;
   font-weight: 600;

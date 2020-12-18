@@ -1,9 +1,7 @@
 <template>
   <div :style="fontStyle" class="custom-component-container">
-    <h3 :style="{ color: textColor }">坐标定位demo:</h3>
-    <div class="btn-opers">
-      <a-button type="primary" :style="{ fontSize }" @click="togglePoints">坐标定位</a-button>
-    </div>
+    <h3 :style="{ color: textColor }">{{ $t('CoordinatesPosition.title') }}</h3>
+    <a-button type="primary" :style="{ fontSize }" @click="togglePoints">{{ $t('CoordinatesPosition.btnText') }}</a-button>
   </div>
 </template>
 
@@ -59,7 +57,7 @@ export default {
       });
     },
     noneMapTip() {
-      alert('未关联地图！');
+      alert(this.$t('CoordinatesPosition.unassociatedMap'));
     }
   },
   loaded(map) {
@@ -81,17 +79,5 @@ h3 {
   display: inline-block;
   padding-bottom: 6px;
   font-weight: 600;
-}
-.btn-opers {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-.btn-opers .ant-btn {
-  margin: 10px 8px;
-  display: inline-block;
-  width: 42%;
-  padding: 0;
 }
 </style>
