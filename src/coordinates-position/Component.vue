@@ -80,4 +80,9 @@ h3 {
   padding-bottom: 6px;
   font-weight: 600;
 }
+
+button {
+  display: block;
+  margin-top: 10px;
+}
 </style>
