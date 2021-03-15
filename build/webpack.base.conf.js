@@ -1,9 +1,9 @@
-const path = require("path");
-const utils = require("./utils");
+const path = require('path');
+const utils = require('./utils');
 const components = require('../src/components.json');
 
 function resolve(dir) {
-  return path.join(__dirname, "..", dir);
+  return path.join(__dirname, '..', dir);
 }
 
 const entries = {};
@@ -28,17 +28,18 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: [".js", ".vue", ".json"],
+    extensions: ['.ts', '.js', '.vue', '.json'],
+    modules: ['node_modules'],
     alias: {
       vue$: "vue/dist/vue.esm.js",
-      "@": resolve("src")
+      '@': resolve('src')
     }
   },
   module: {
     rules: [
       {
         test: /\.vue$/,
-        loader: "vue-loader",
+        loader: 'vue-loader',
         options: {
           esModule: false,
           loaders: utils.cssLoaders({
@@ -47,40 +48,59 @@ module.exports = {
           cssSourceMap: true,
           cacheBusting: true,
           transformToRequire: {
-            video: ["src", "poster"],
-            source: "src",
-            img: "src",
-            image: "xlink:href"
+            video: ['src', 'poster'],
+            source: 'src',
+            img: 'src',
+            image: 'xlink:href'
           }
         }
       },
       {
         test: /\.js$/,
-        loader: "babel-loader",
-        include: [resolve('src'), resolve('node_modules/webpack-dev-server/client')]
+        loader: 'babel-loader',
+        include: [
+          resolve('src'),
+          resolve('node_modules/webpack-dev-server/client'),
+          resolve('node_modules/@supermap/vue-iclient-mapboxgl/src')
+        ]
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        include: [resolve('src'), resolve('node_modules/@supermap/vue-iclient-mapboxgl')],
+        use: [
+          {
+            loader: 'babel-loader'
+          },
+          {
+            loader: 'ts-loader',
+            options: {
+              appendTsSuffixTo: [/\.vue$/]
+            }
+          }
+        ]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: "url-loader",
+        loader: 'url-loader',
         options: {
           limit: 200000,
-          name: utils.assetsPath("img/[name].[hash:7].[ext]")
+          name: utils.assetsPath('img/[name].[hash:7].[ext]')
         }
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-        loader: "url-loader",
+        loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath("media/[name].[hash:7].[ext]")
+          name: utils.assetsPath('media/[name].[hash:7].[ext]')
         }
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: "url-loader",
+        loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath("fonts/[name].[hash:7].[ext]")
+          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
       ...utils.styleLoaders({
