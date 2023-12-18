@@ -17,6 +17,8 @@ for (let key in components) {
   }
 }
 
+const isProd = process.env.NODE_ENV === 'production';
+
 module.exports = {
   context: path.resolve(__dirname, '../'),
   // 此处引入要打包的组件
@@ -43,9 +45,9 @@ module.exports = {
         options: {
           esModule: false,
           loaders: utils.cssLoaders({
-            sourceMap: true
+            sourceMap: !isProd
           }),
-          cssSourceMap: true,
+          cssSourceMap: !isProd,
           cacheBusting: true,
           transformToRequire: {
             video: ['src', 'poster'],
@@ -104,7 +106,7 @@ module.exports = {
         }
       },
       ...utils.styleLoaders({
-        sourceMap: true,
+        sourceMap: !isProd,
         usePostCSS: true
       })
     ]
